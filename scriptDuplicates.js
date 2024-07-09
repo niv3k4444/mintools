@@ -1,6 +1,6 @@
 function duplicates() {
     const text = document.getElementById('text-in').value;
-    const textArray = text.split(" ");
+    const textArray = text.split("\n");
     const wordCount = {};
     textArray.forEach(word => {
         wordCount[word] = (wordCount[word] || 0) + 1;

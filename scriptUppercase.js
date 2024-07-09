@@ -3,3 +3,11 @@ function uppercase() {
     var result = text.toUpperCase();
     document.getElementById('text-out').value = result;
 }
+
+
+
+
+
+
+
+

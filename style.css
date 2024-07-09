@@ -1,5 +1,6 @@
 .body, html{
     font-family: Arial;
+    background-color: #fefefe;
 }
 
 *{
@@ -9,27 +10,24 @@
 }
 
 .page {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    gap: 150px;
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: 250px 1fr;
 }
 
 .container {
     width: 250px;
     height: 100vh;
     overflow-y: auto;
-    background-color: rgb(216, 216, 216);
+    background-color: #F6F1F9;
 }
 
 .taskbar{
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    gap: 40px;
+    gap: 25px;
     width: 100%;
-    padding-top: 50px;
+    padding-top: 40px;
 }
 .button{
     width: 100%;
@@ -40,18 +38,48 @@
 }
 
 .button:hover{
-    background-color: #1bd18e;
+    background-color: #b752c0;
     color: white;
 }
 
 .btn-active {
     width: 100%;
     height: 50px;
-    background-color: #04AA6D;
+    background-color: #B752C0;
+    opacity: 90%;
     border: transparent;
     transition-duration: 0.4;
     color: white;
 }
+
+label{
+    width: 50px;
+    height: 25px;
+    position: absolute;
+    display: block;
+    border-radius: 25px;
+    background: #F6F1F9;
+    cursor: pointer;
+    top: 10px;
+    right: 10px;
+}
+
+label:after{
+    content: "";
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    background: #B752C0;
+    border-radius: 180px;
+}
+input{
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
 
 .dashboard {
     display: flex;
@@ -65,13 +93,14 @@
     width: 125vh;
     padding: 12px 20px;
     box-sizing: border-box;
-    border: 2px solid #ccc;
+    border: none;
     border-radius: 4px;
     background-color: #f8f8f8;
     font-size: 16px;
     resize: none;
     margin-bottom: 35px;
     margin-top: 35px;
+    background-color: #F6F1F9;
 }
 
 .btn-dashboard {
@@ -86,11 +115,14 @@
     height:40px;
     border: 2px solid black;
     width: 15vh;
-    
+    border-radius: 10px;
 }
+
 .btn-dashboard:hover{
-    background-color: #04AA6D;
-    color: white;
+    background-color: #B752C0;
+    color: #fefefe;
+    border: #fefefe;
+    border-radius: 10px;
 }
 
 #div-duplicates {
@@ -102,8 +134,9 @@
 }
 
 #btn-duplicates:hover{
-    background-color: #04AA6D;
+    background-color: #B752C0;
     color: white;
+    border-radius: 10px;
 }
 
 .txt-duplicates {
@@ -111,7 +144,7 @@
     height: 35vh;
     padding: 12px 20px;
     box-sizing: border-box;
-    border: 2px solid #ccc;
+    border: none;
     border-radius: 4px;
     background-color: #f8f8f8;
     font-size: 16px;
@@ -133,4 +166,91 @@
     height:50px;
     width: 20vh;
     border: 2px solid black;
+    border-radius: 10px;
+}
+.btn-theme{
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    border: transparent;
+    transition-duration: 0.4;
+}
+.btn-theme:hover{
+    background-color: #B752C0;
+    color: white;
+}
+
+.label {
+    background: #242d42;
+  }
+  input:checked + label:after {
+    left:48px;
+    transform: translateX(-100%);
+    background: #a3dde1;
+  }
+  label, label:after {
+    transition: 0.3s
+  }
+
+body.dark {
+    background-color: #171d2b;
+}
+
+body.dark button {
+    background-color: transparent;
+    color: #f6f1f9;
+}
+
+body.dark button:hover {
+    background-color: #a3dde1;
+    color: #171d2b;
+}
+
+body.dark .container{
+    background-color: #242d42;
+    color: #f6f1f9
+}
+
+body.dark .text {
+    background-color: #242d42;
+    color: #f6f1f9;
+}
+
+body.dark .btn-active {
+    background-color: #a3dde1;
+    color: #171d2b
+}
+body.dark .btn-dashboard{
+    border: 2px solid #f6f1f9;
+    border-radius: 10px;
+}
+body.dark .btn-dashboard:hover{
+    background-color: #a3dde1;
+    color: #171d2b;
+    border: #171d2b;
+    border-radius: 10px;
+}
+
+body.dark .txt-duplicates {
+    background-color: #242d42;
+    color: #f6f1f9;    
+}
+
+body.dark #btn-duplicates {
+    border: solid 2px #f6f1f9;
+    background-color: transparent;
+    color: #f6f1f9;
+    border-radius: 10px;
+}
+
+body.dark #btn-duplicates:hover{
+    background-color: #a3dde1;
+    color: #171d2b;    
+    border: #171d2b;
+    border-radius: 10px;
+}
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 0%;
+    }
 }

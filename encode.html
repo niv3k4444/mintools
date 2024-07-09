@@ -2,22 +2,24 @@
 <html>
     <link rel ="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="scriptEncode.js"></script>
+    <script src="scriptMode.js"></script>
     <body>
         <div class="page">
             <div class="container">
                 <div class="taskbar">
                     <a href="lowercase.html">
-                        <button class="button">Tutto Minuscolo</button>
+                        <button class="button">Lowercase</button>
                     </a>
                     <a href="uppercase.html">
-                        <button class="button">Tutto Maiuscolo</button>
+                        <button class="button">Uppercase</button>
                     </a>
                     <a href="encode.html">
-                        <button class="btn-active">Codifica Base64</button>
+                        <button class="btn-active">Base64 Encoding</button>
                     </a>
                     <a href="decode.html">
-                        <button class="button">Decodifica Base64</button>
+                        <button class="button">Base64 Decoding</button>
                     </a>
                     <a href="json.html">
                         <button class="button">JSON Formatting</button>
@@ -26,17 +28,19 @@
                         <button class="button">HTML Formatting</button>
                     </a>
                     <a href="duplicates.html">
-                        <button class="button">Ricerca Duplicati</button>
+                        <button class="button">Duplicates Searcher</button>
                     </a>
                 </div>
             </div>
             <div class="dashboard">
-                <textarea class="text" id = "textIn" placeholder="Inserisci il testo da codificare in Base64."></textarea>
+                <textarea class="text" id = "textIn" placeholder="Insert the text you want to encode in Base64."></textarea>
                 <button class="btn-dashboard" onclick = "encode()">
-                    Codifica!
+                    Encode!
                 </button>
-                <textarea disabled id="textOut" class = "text">Il risultato apparirà qui...</textarea>
+                <textarea disabled id="textOut" class = "text" placeholder="The result will appear here."></textarea>
             </div>
+            <input type = "checkbox" id="darkmode-toggle" onclick="switchmode()">
+            <label for ="darkmode-toggle">
         </div>
     </body>
 </html>

@@ -4,3 +4,5 @@ function lowerCase() {
     document.getElementById('textOut').value = result;
 }
 
+
+
