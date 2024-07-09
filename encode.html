@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <link rel ="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="scriptEncode.js"></script>
+    <body>
+        <div class="page">
+            <div class="container">
+                <div class="taskbar">
+                    <a href="lowercase.html">
+                        <button class="button">Tutto Minuscolo</button>
+                    </a>
+                    <a href="uppercase.html">
+                        <button class="button">Tutto Maiuscolo</button>
+                    </a>
+                    <a href="encode.html">
+                        <button class="btn-active">Codifica Base64</button>
+                    </a>
+                    <a href="decode.html">
+                        <button class="button">Decodifica Base64</button>
+                    </a>
+                    <a href="json.html">
+                        <button class="button">JSON Formatting</button>
+                    </a>
+                    <a href="html.html">
+                        <button class="button">HTML Formatting</button>
+                    </a>
+                    <a href="duplicates.html">
+                        <button class="button">Ricerca Duplicati</button>
+                    </a>
+                </div>
+            </div>
+            <div class="dashboard">
+                <textarea class="text" id = "textIn" placeholder="Inserisci il testo da codificare in Base64."></textarea>
+                <button class="btn-dashboard" onclick = "encode()">
+                    Codifica!
+                </button>
+                <textarea disabled id="textOut" class = "text">Il risultato apparirà qui...</textarea>
+            </div>
+        </div>
+    </body>
+</html>

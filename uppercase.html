@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <link rel ="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="scriptUppercase.js"></script>
+    <body>
+        <div class="page">
+            <div class="container">
+                <div class="taskbar">
+                    <a href="lowercase.html">
+                        <button class="button">Tutto Minuscolo</button>
+                    </a>
+                    <a href="uppercase.html">
+                        <button class="btn-active">Tutto Maiuscolo</button>
+                    </a>
+                    <a href="encode.html">
+                        <button class="button">Codifica Base64</button>
+                    </a>
+                    <a href="decode.html">
+                        <button class="button">Decodifica Base64</button>
+                    </a>
+                    <a href="json.html">
+                        <button class="button">JSON Formatting</button>
+                    </a>
+                    <a href="html.html">
+                        <button class="button">HTML Formatting</button>
+                    </a>
+                    <a href="duplicates.html">
+                        <button class="button">Ricerca Duplicati</button>
+                    </a>
+                </div>
+            </div>
+            <div class="dashboard">
+                <textarea id="text-in" class="text">Inserire testo da convertire in maiuscolo.</textarea>
+                <button class="btn-dashboard" onclick="uppercase()">
+                    Converti!
+                </button> 
+                <textarea disabled id="text-out" class="text">Il risultato apparirà qui...</textarea>
+            </div>
+        </div>
+    </body>
+</html>
