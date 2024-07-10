@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
-    <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <script src="script.js"></script>
+    </head>
     <body>
         <div class="page">
             <div class="container">
                 <div class="taskbar">
-                    <a href ="index.html">
-                        <button class="btn">Homepage</button>
+                    <a href="index.html">
+                        <button class="btn-active">Homepage</button>
                     </a>
                     <a href="lowerUpper.html">
                         <button class="btn">Lowercase and Uppercase</button>
@@ -24,7 +26,7 @@
                         <button class="btn">HTML Formatting</button>
                     </a>
                     <a href="duplicates.html">
-                        <button class="btn-active">Duplicates Searcher</button>
+                        <button class="btn">Duplicates Searcher</button>
                     </a>
                     <a href="minJs.html">
                         <button class="btn">Minify JavaScript</button>
@@ -42,7 +44,7 @@
                         <button class="btn">3DES Encoding/Decoding</button>
                     </a>
                     <a href="aes.html">
-                        <button class="btn">AES Encoding/Decodin</button>
+                        <button class="btn">AES Encoding/Decoding</button>
                     </a>
                     <a href="des.html">
                         <button class="btn">DES Encoding/Decoding</button>
@@ -61,26 +63,12 @@
                     </a>
                 </div>
             </div>
-            <div class="dashboard">
-                <textarea class="text" id="text-in" placeholder="Insert the text you want to check."></textarea>
-                <button id="btn-duplicates" onclick="duplicates()">
-                    Check if there are repeated words!
-                </button>                
-                <div class="div-duplicates">
-                    <div class="btn-dup">
-                        <div>
-                            <button class="btn-copy-1" onclick="copyText1()">Copy</button>
-                            <textarea disabled id="txt-out-1" class="txt-duplicates textWithLessMarginTop" placeholder="The repeated words will appear here."></textarea>
-                        </div>
-                    </div>
-                    <div class="btn-dup">
-                        <button class="btn-copy-2" onclick="copyText2()">Copy</button>
-                        <textarea disabled id="txt-out-2" class="txt-duplicates textWithLessMarginTop" placeholder="The non-repeated words will appear here."></textarea>
-                    </div>
-                </div>
+            <div class="dashboard-logo">
+                <img id="logo-light" src="logo-light.svg" alt="Light Mode Logo">
+                <img id="logo-dark" src="logo-dark.svg" alt="Dark Mode Logo" style="display: none;">
             </div>
-            <input type = "checkbox" id="darkmode-toggle" onclick="switchmode()">
-            <label for ="darkmode-toggle">
+            <input type="checkbox" id="darkmode-toggle" onclick="switchmode()">
+            <label for="darkmode-toggle"></label>
         </div>
     </body>
 </html>

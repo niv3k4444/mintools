@@ -3,6 +3,9 @@
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="rollups/tripledes.js"></script>
+    <script src="components/mode-ecb.js"></script>
     <script src="script.js"></script>
     <body>
         <div class="page">
@@ -24,7 +27,7 @@
                         <button class="btn">HTML Formatting</button>
                     </a>
                     <a href="duplicates.html">
-                        <button class="btn-active">Duplicates Searcher</button>
+                        <button class="btn">Duplicates Searcher</button>
                     </a>
                     <a href="minJs.html">
                         <button class="btn">Minify JavaScript</button>
@@ -42,10 +45,10 @@
                         <button class="btn">3DES Encoding/Decoding</button>
                     </a>
                     <a href="aes.html">
-                        <button class="btn">AES Encoding/Decodin</button>
+                        <button class="btn">AES Encoding/Decoding</button>
                     </a>
                     <a href="des.html">
-                        <button class="btn">DES Encoding/Decoding</button>
+                        <button class="btn-active">DES Encoding/Decoding</button>
                     </a>
                     <a href="rsa.html">
                         <button class="btn">RSA Encoding/Decoding</button>
@@ -62,21 +65,19 @@
                 </div>
             </div>
             <div class="dashboard">
-                <textarea class="text" id="text-in" placeholder="Insert the text you want to check."></textarea>
-                <button id="btn-duplicates" onclick="duplicates()">
-                    Check if there are repeated words!
-                </button>                
-                <div class="div-duplicates">
-                    <div class="btn-dup">
-                        <div>
-                            <button class="btn-copy-1" onclick="copyText1()">Copy</button>
-                            <textarea disabled id="txt-out-1" class="txt-duplicates textWithLessMarginTop" placeholder="The repeated words will appear here."></textarea>
-                        </div>
-                    </div>
-                    <div class="btn-dup">
-                        <button class="btn-copy-2" onclick="copyText2()">Copy</button>
-                        <textarea disabled id="txt-out-2" class="txt-duplicates textWithLessMarginTop" placeholder="The non-repeated words will appear here."></textarea>
-                    </div>
+                <textarea id="txt-in" class="text" placeholder="Insert the DES text you want to encode/decode."></textarea>
+                <textarea id="key-in" class="des-key" placeholder="Insert the key."></textarea>
+                <div>
+                    <button class="btn-dashboard" onclick="encodeDes()">
+                        Encode!
+                    </button>
+                    <button class="btn-dashboard" onclick="decodeDes()">
+                        Decode!
+                    </button>
+                </div>
+                <div class="container-out">
+                    <button class="btn-copy" onclick="copyText()">Copy</button>
+                    <textarea disabled id="txt-out" class="text textWithLessMarginTop" placeholder="The result will appear here."></textarea>
                 </div>
             </div>
             <input type = "checkbox" id="darkmode-toggle" onclick="switchmode()">

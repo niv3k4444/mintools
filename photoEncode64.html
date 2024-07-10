@@ -24,7 +24,7 @@
                         <button class="btn">HTML Formatting</button>
                     </a>
                     <a href="duplicates.html">
-                        <button class="btn-active">Duplicates Searcher</button>
+                        <button class="btn">Duplicates Searcher</button>
                     </a>
                     <a href="minJs.html">
                         <button class="btn">Minify JavaScript</button>
@@ -36,13 +36,13 @@
                         <button class="btn">View Base64 Photo</button>
                     </a>
                     <a href="photoEncode64.html">
-                        <button class="btn">Encode Photo in Base64</button>
+                        <button class="btn-active">Encode Photo in Base64</button>
                     </a>
                     <a href="3des.html">
                         <button class="btn">3DES Encoding/Decoding</button>
                     </a>
                     <a href="aes.html">
-                        <button class="btn">AES Encoding/Decodin</button>
+                        <button class="btn">AES Encoding/Decoding</button>
                     </a>
                     <a href="des.html">
                         <button class="btn">DES Encoding/Decoding</button>
@@ -62,21 +62,13 @@
                 </div>
             </div>
             <div class="dashboard">
-                <textarea class="text" id="text-in" placeholder="Insert the text you want to check."></textarea>
-                <button id="btn-duplicates" onclick="duplicates()">
-                    Check if there are repeated words!
-                </button>                
-                <div class="div-duplicates">
-                    <div class="btn-dup">
-                        <div>
-                            <button class="btn-copy-1" onclick="copyText1()">Copy</button>
-                            <textarea disabled id="txt-out-1" class="txt-duplicates textWithLessMarginTop" placeholder="The repeated words will appear here."></textarea>
-                        </div>
-                    </div>
-                    <div class="btn-dup">
-                        <button class="btn-copy-2" onclick="copyText2()">Copy</button>
-                        <textarea disabled id="txt-out-2" class="txt-duplicates textWithLessMarginTop" placeholder="The non-repeated words will appear here."></textarea>
-                    </div>
+                <textarea id="txt-in" class="text" placeholder="Insert the photo here."></textarea>
+                <button class="btn-dashboard" onclick="">
+                    Encode!
+                </button>
+                <div class="container-out">
+                    <button class="btn-copy" onclick="copyText()">Copy</button>
+                    <textarea disabled id="txt-out" class="text textWithLessMarginTop" placeholder="The result will appear here."></textarea>
                 </div>
             </div>
             <input type = "checkbox" id="darkmode-toggle" onclick="switchmode()">
