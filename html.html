@@ -1,75 +1,78 @@
 <!DOCTYPE html>
-<html>
-    <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify-html.js"></script>
-    <script src="script.js"></script>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.15.1/beautify-html.js"></script>
+        <script src="script.js"></script>
+        <title>HTML Formatter</title>
+    </head>
     <body>
         <div class="page">
-            <div class="container">
-                <div class="taskbar">
-                    <a href ="index.html">
-                        <button class="btn">Homepage</button>
-                    </a>
-                    <a href="lowerUpper.html">
-                        <button class="btn">Lowercase and Uppercase</button>
-                    </a>
-                    <a href="Base64.html">
-                        <button class="btn">Base64 Encoding/Decoding</button>
-                    </a>
-                    <a href="json.html">
-                        <button class="btn">JSON Formatting</button>
-                    </a>
-                    <a href="html.html">
-                        <button class="btn-active">HTML Formatting</button>
-                    </a>
-                    <a href="duplicates.html">
-                        <button class="btn">Duplicates Searcher</button>
-                    </a>
-                    <a href="minJs.html">
-                        <button class="btn">Minify JavaScript</button>
-                    </a>
-                    <a href="minJson.html">
-                        <button class="btn">Minify JSON</button>
-                    </a>
-                    <a href="photoViewer64.html">
-                        <button class="btn">View Base64 Photo</button>
-                    </a>
-                    <a href="photoEncode64.html">
-                        <button class="btn">Encode Photo in Base64</button>
-                    </a>
-                    <a href="photoViewer64.html">
-                        <button class="btn">View Base64 Photo</button>
-                    </a>
-                    <a href="photoEncode64.html">
-                        <button class="btn">Encode Photo in Base64</button>
-                    </a>
-                    <a href="3des.html">
-                        <button class="btn">3DES Encoding/Decoding</button>
-                    </a>
-                    <a href="aes.html">
-                        <button class="btn">AES Encoding/Decoding</button>
-                    </a>
-                    <a href="des.html">
-                        <button class="btn">DES Encoding/Decoding</button>
-                    </a>
-                    <a href="rsa.html">
-                        <button class="btn">RSA Encoding/Decoding</button>
-                    </a>
-                    <a href="jwt.html">
-                        <button class="btn">JWT Token Decoder</button>
-                    </a>
-                </div>
+            <button class="btn-overlay"><span onclick="openOverlay()">&#9776;</span></button>
+            <div class="taskbar">
+                <div class="taskbar-background" onclick="closeOverlay()"></div>
+                <a href="index.html">
+                    <button class="btn">Homepage</button>
+                </a>
+                <a href="lowerUpper.html">
+                    <button class="btn">Lowercase and Uppercase</button>
+                </a>
+                <a href="Base64.html">
+                   <button class="btn">Base64 Encoding/Decoding</button>
+                </a>
+                <a href="json.html">
+                    <button class="btn">JSON Formatting</button>
+                </a>
+                <a href="html.html">
+                    <button class="btn-active">HTML Formatting</button>
+                </a>
+                <a href="duplicates.html">
+                    <button class="btn">Duplicates Searcher</button>
+                </a>
+                <a href="minJs.html">
+                    <button class="btn">Minify JavaScript</button>
+                </a>
+                <a href="minJson.html">
+                    <button class="btn">Minify JSON</button>
+                </a>
+                <a href="photoViewer64.html">
+                    <button class="btn">View Base64 Photo</button>
+                </a>
+                <a href="photoEncode64.html">
+                    <button class="btn">Encode Photo in Base64</button>
+                </a>
+                <a href="3des.html">
+                   <button class="btn">3DES Encoding/Decoding</button>
+                </a>
+                <a href="aes.html">
+                    <button class="btn">AES Encoding/Decoding</button>
+                </a>
+                <a href="des.html">
+                    <button class="btn">DES Encoding/Decoding</button>
+                </a>
+                <a href="rsa.html">
+                    <button class="btn">RSA Encoding/Decoding</button>
+                </a>
+                <a href="jwt.html">
+                    <button class="btn">JWT Token Decoder</button>
+                </a>
+                <a href="beautyJs.html">
+                    <button class="btn">Beautify JavaScript</button>
+                </a>
+                <a href="beautyXml.html">
+                    <button class="btn">Beautify XML</button>
+                </a>
             </div>
             <div class="dashboard">
-                <textarea id="txt-in" class="text" placeholder="Insert the HTML you want to format."></textarea>
+                <textarea id="txt-in" class="text" rows="10" placeholder="Insert the HTML you want to format."></textarea>
                 <button class="btn-dashboard" onclick="formatHtml()">
                     Format!
                 </button>
                 <div class="container-out">
                     <button class="btn-copy" onclick="copyText()">Copy</button>
-                    <textarea disabled id="txt-out" class="text textWithLessMarginTop" placeholder="The result will appear here."></textarea>
+                    <textarea disabled id="txt-out" class="text textWithLessMarginTop" rows="10" placeholder="The result will appear here."></textarea>
                 </div>
             </div>
             <input type = "checkbox" id="darkmode-toggle" onclick="switchmode()">
