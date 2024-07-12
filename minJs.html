@@ -1,24 +1,26 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmin/1.0.1/jsmin.min.js"></script>
-    <script src="script.js"></script>
-</head>
-<body>
-    <div class="page">
-        <div class="container">
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmin/1.0.1/jsmin.min.js"></script>
+        <script src="script.js"></script>
+        <title>JavaScript Minifier</title>
+    </head>
+    <body>
+        <div class="page">
+            <button class="btn-overlay"><span onclick="openOverlay()">&#9776;</span></button>
             <div class="taskbar">
-                <a href ="index.html">
+                <div class="taskbar-background" onclick="closeOverlay()"></div>
+                <a href="index.html">
                     <button class="btn">Homepage</button>
                 </a>
                 <a href="lowerUpper.html">
                     <button class="btn">Lowercase and Uppercase</button>
                 </a>
                 <a href="Base64.html">
-                    <button class="btn">Base64 Encoding/Decoding</button>
+                   <button class="btn">Base64 Encoding/Decoding</button>
                 </a>
                 <a href="json.html">
                     <button class="btn">JSON Formatting</button>
@@ -42,7 +44,7 @@
                     <button class="btn">Encode Photo in Base64</button>
                 </a>
                 <a href="3des.html">
-                    <button class="btn">3DES Encoding/Decoding</button>
+                   <button class="btn">3DES Encoding/Decoding</button>
                 </a>
                 <a href="aes.html">
                     <button class="btn">AES Encoding/Decoding</button>
@@ -63,19 +65,18 @@
                     <button class="btn">Beautify XML</button>
                 </a>
             </div>
-        </div>
-        <div class="dashboard">
-            <textarea id="txt-in" class="text" placeholder="Insert the JavaScript script you want to minify"></textarea>
-            <button class="btn-dashboard" onclick="minJS()">
-                Minify!
-            </button>
-            <div class="container-out">
-                <button class="btn-copy" onclick="copyText()">Copy</button>
-                <textarea disabled id="txt-out" class="text textWithLessMarginTop" placeholder="The result will appear here."></textarea>
+            <div class="dashboard">
+                <textarea id="txt-in" class="text" rows="10" placeholder="Insert the JavaScript script you want to minify"></textarea>
+                <button class="btn-dashboard" onclick="minJS()">
+                    Minify!
+                </button>
+                <div class="container-out">
+                    <button class="btn-copy" onclick="copyText()">Copy</button>
+                    <textarea disabled id="txt-out" rows="10" class="text textWithLessMarginTop" placeholder="The result will appear here."></textarea>
+                </div>
             </div>
+            <input type="checkbox" id="darkmode-toggle" onclick="switchmode()">
+            <label for="darkmode-toggle"></label>
         </div>
-        <input type="checkbox" id="darkmode-toggle" onclick="switchmode()">
-        <label for="darkmode-toggle"></label>
-    </div>
-</body>
+    </body>
 </html>
