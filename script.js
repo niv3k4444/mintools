@@ -125,7 +125,12 @@ function photoViewer64() {
     var text = document.getElementById('txt-in').value;
     var imgElem = document.createElement('img');
     // TODO IF TXT STARTS WITH data:image/jpg;base64, DONT ADD IT
-    imgElem.setAttribute('src', "data:image/jpg;base64," + text);
+    if (!text.startsWith("data:image/jpg;base64,")){
+        imgElem.setAttribute('src', "data:image/jpg;base64," + text);
+    }else{
+        imgElem.setAttribute('src', text);
+    }
+    
     var imageContainer = document.getElementById('img-container');
     imageContainer.innerHTML = '';  
     imageContainer.appendChild(imgElem);

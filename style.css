@@ -98,10 +98,9 @@ label{
     display: block;
     border-radius: 25px;
     background: #F6F1F9;
-
     cursor: pointer;
     top: 10px;
-    right: 10px;
+    right: 20px;
 }
 
 label:after{
@@ -165,8 +164,7 @@ input{
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-    height:40px;
-    width: 15vh;
+    padding:10px 20px;
     border-radius: 10px;
     border: transparent;
 }
@@ -236,10 +234,9 @@ body.dark .btn-copy-1:hover{
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-    height:50px;
-    width: 20vh;
     border: transparent;
     border-radius: 10px;
+    padding: 10PX 20PX
 }
 
 .label {
@@ -345,13 +342,11 @@ body.dark #btn-duplicates:hover{
 
 .btn-copy{
     padding: 10px 20px;
-    height: 5vh;
     border-radius: 10px;
     background-color:rgba(166, 222, 130, 0.5);
     border: transparent;
     color: black;
     text-align: center;
-    margin-right: 15px;
 }
 
 .btn-copy:hover {
@@ -361,7 +356,7 @@ body.dark #btn-duplicates:hover{
 }
 
 .des-key{
-    width: 40%;
+    width: 100%;
     padding: 12px 20px;
     box-sizing: border-box;
     border: none;
@@ -402,13 +397,11 @@ body.dark .key-1{
 
 .btn-copy-2{
     padding: 10px 20px;
-    height: 5vh;
     border-radius: 10px;
     background-color:rgba(166, 222, 130, 0.5);
     border: transparent;
     color: black;
     text-align: center;
-    margin-right: 15px;
 }
 
 .btn-copy-2:hover {
@@ -432,13 +425,11 @@ body.dark .btn-copy-2:hover{
 
 .btn-copy-1{
     padding: 10px 20px;
-    height: 5vh;
     border-radius: 10px;
     background-color:rgba(166, 222, 130, 0.5);
     border: transparent;
     color: black;
     text-align: center;
-    margin-left: 15px;
 }
 
 .btn-copy-1:hover {
@@ -473,6 +464,10 @@ input[type="file"] {
 
 .drop-zone.dragover {
     background-color: #f0f0f0;
+}
+
+#img-container {
+    width: 100%;
 }
 
 .btn-overlay{
@@ -549,11 +544,11 @@ body.dark .btn-overlay{
     }
     
     .btn-dashboard{
-        width: 30vw;
+        padding: 10px 20px;
     }
 
     .btn-copy{
-        width: 30%;
+        padding: 10px 20px;
     }
 
     .div-duplicates{
@@ -562,10 +557,15 @@ body.dark .btn-overlay{
     }
 
     .btn-copy-1{
-        width: 15vw;
+        padding: 10px 20px;
     }
 
     .btn-copy-2{
-        width: 15vw;
+        padding: 10px 20px;
     }
+}
+
+
+.aes-keys {
+    width: 100%;
 }
