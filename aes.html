@@ -64,12 +64,26 @@
                 <a href="beautyXml.html">
                     <button class="btn">Beautify XML</button>
                 </a>
+                <a href="textcomp.html">
+                    <button class="btn">Text Compare</button>
+                </a>
             </div>
             <div class="dashboard">
                 <textarea id="txt-in" class="text" rows="10" placeholder="Insert the text you want to encode/decode in AES."></textarea>
                 <div class="aes-keys">
                     <textarea id="key-in" class="keys" placeholder="Insert the 16/24/32-bit key."></textarea>
                     <textarea id="iv-in" class="keys"placeholder="Insert the 16-bit IV."></textarea>
+                </div>
+                <div class="aes-param">
+                    <select id="mode" class="aes-mode">
+                        <option value="cbc">CBC</option>
+                        <option value="ecb">ECB</option>
+                      </select>
+                      <select id="keySize" class="aes-mode">
+                        <option value="128">128 bit</option>
+                        <option value="192">192 bit</option>
+                        <option value="256">256 bit</option>
+                      </select>
                 </div>
                 <div>
                     <button class="btn-dashboard" onclick="encodeAES()">

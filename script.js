@@ -27,13 +27,28 @@ function updateLogo() {
 
 window.onload = function() {
     const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
+    const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+    if (!savedTheme) {
+        if (darkThemeMq.matches) {
+            light = false;
+            $("body").addClass("dark");
+            localStorage.setItem("theme", "dark");
+        } else {
+            light = true;
+            $("body").addClass("light");
+            localStorage.setItem("theme", "light");
+        }
+    } else {
         light = savedTheme === "light";
+    }
+    if (!sessionStorage.getItem("themeSet")) {
+        sessionStorage.setItem("themeSet", "true");
     }
     document.getElementById('darkmode-toggle').checked = !light;
     $("body").toggleClass("dark", !light);
     updateLogo();
 };
+
 
 
 $(document).ready(function() {
@@ -343,27 +358,30 @@ function encodeAES() {
     var text = document.getElementById("txt-in").value;
     var key = document.getElementById("key-in").value;
     var iv = document.getElementById("iv-in").value;
+    var mode = document.getElementById("mode").value.toUpperCase();
+    var keySize = parseInt(document.getElementById("keySize").value);
 
-    if (key.length === 0 || iv.length === 0) {
+    if (key.length === 0 || (mode === "CBC" && iv.length === 0)) {
         alert("Key and IV must not be empty.");
         return;
     }
 
-    if (key.length !== 16 && key.length !== 24 && key.length !== 32) {
-        alert("Key must be 16, 24, or 32 characters long.");
+    if (key.length !== keySize / 8) {
+        alert(`Key must be ${keySize / 8} characters long.`);
         return;
     }
-    if (iv.length !== 16) {
+
+    if (mode === "CBC" && iv.length !== 16) {
         alert("IV must be 16 characters long.");
         return;
     }
 
     var keyUtf8 = CryptoJS.enc.Utf8.parse(key);
-    var ivUtf8 = CryptoJS.enc.Utf8.parse(iv);
+    var ivUtf8 = mode === "CBC" ? CryptoJS.enc.Utf8.parse(iv) : null;
 
     var encrypted = CryptoJS.AES.encrypt(text, keyUtf8, {
         iv: ivUtf8,
-        mode: CryptoJS.mode.CBC,
+        mode: CryptoJS.mode[mode],
         padding: CryptoJS.pad.Pkcs7
     });
 
@@ -374,28 +392,31 @@ function decodeAES() {
     var text = document.getElementById("txt-in").value;
     var key = document.getElementById("key-in").value;
     var iv = document.getElementById("iv-in").value;
+    var mode = document.getElementById("mode").value.toUpperCase();
+    var keySize = parseInt(document.getElementById("keySize").value);
 
-    if (key.length !== 16 && key.length !== 24 && key.length !== 32) {
-        alert("Key must be 16, 24, or 32 characters long.");
-        return;
-    }
-    if (iv.length !== 16) {
-        alert("IV must be 16 characters long.");
-        return;
-    }
-
-    if (key.length === 0 || iv.length === 0) {
+    if (key.length === 0 || (mode === "CBC" && iv.length === 0)) {
         alert("Key and IV must not be empty.");
+        return;
+    }
+
+    if (key.length !== keySize / 8) {
+        alert(`Key must be ${keySize / 8} characters long.`);
+        return;
+    }
+
+    if (mode === "CBC" && iv.length !== 16) {
+        alert("IV must be 16 characters long.");
         return;
     }
 
     try {
         var keyUtf8 = CryptoJS.enc.Utf8.parse(key);
-        var ivUtf8 = CryptoJS.enc.Utf8.parse(iv);
+        var ivUtf8 = mode === "CBC" ? CryptoJS.enc.Utf8.parse(iv) : null;
 
         var decrypted = CryptoJS.AES.decrypt(text, keyUtf8, {
             iv: ivUtf8,
-            mode: CryptoJS.mode.CBC,
+            mode: CryptoJS.mode[mode],
             padding: CryptoJS.pad.Pkcs7
         });
 
@@ -511,10 +532,41 @@ function beautyXml() {
     var formattedXml = formatXml(inputXml);
     document.getElementById('txt-out').value = formattedXml;
 }
+
+
+
+function textCompare() {
+    const text1 = $('#txt-in').val().split('\n');
+    const text2 = $('#txt-in2').val().split('\n');
+
+    let display1 = '';
+    let display2 = '';
+
+    const maxLength = Math.max(text1.length, text2.length);
+
+    for (let i = 0; i < maxLength; i++) {
+        const line1 = text1[i] || '';
+        const line2 = text2[i] || '';
+
+        // Se le linee sono diverse, evidenzia le parti diverse
+        if (line1 !== line2) {
+            display1 += line1.split('').map((char, index) => line2[index] !== char ? `<span class="highlight">${char}</span>` : char).join('');
+            display2 += line2.split('').map((char, index) => line1[index] !== char ? `<span class="highlight">${char}</span>` : char).join('');
+        } else {
+            display1 += line1;
+            display2 += line2;
+        }
+        display1 += '<br>';
+        display2 += '<br>';
+    }
+
+    $('#span1').html(display1);
+    $('#span2').html(display2);
+}
 function openOverlay() {
     $(".taskbar").addClass("active");
 }
-  
+
 function closeOverlay() {
     $(".taskbar").removeClass("active");
 }

@@ -179,6 +179,7 @@ input{
     grid-template-columns: 1fr 1fr;
     display: grid;
     width: 100%;
+    height: 35%;
     gap: 20px;
     margin-top: 20px;
     
@@ -504,6 +505,49 @@ body.dark .btn-overlay{
     display: none;
 }
 
+.aes-keys {
+    width: 100%;
+}
+
+.aes-mode{
+    height: 100%;
+    border-radius: 10px;
+    border: transparent;
+    background-color: #F6F1F9;
+    color: #171d2b;
+    padding: 5px;
+}
+
+body.dark .aes-mode{
+    background-color: #242d42;
+    color: #f6f1f9;
+}
+
+.aes-param{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.pre-text{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+.span {
+    width: 100%;
+    color: #242d42;
+    font-size: 20px;
+    text-align: center;
+}
+.highlight{
+    background-color: rgba(166, 222, 130, 0.5);
+}
+
+body.dark .span {
+    color: #fefefe
+}
 @media (max-width: 600px) {
     .container {
         width: 0%;
@@ -554,6 +598,7 @@ body.dark .btn-overlay{
     .div-duplicates{
         display: grid;
         grid-template-columns: 1fr;
+        height: auto;
     }
 
     .btn-copy-1{
@@ -566,6 +611,3 @@ body.dark .btn-overlay{
 }
 
 
-.aes-keys {
-    width: 100%;
-}

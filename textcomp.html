@@ -4,8 +4,9 @@
         <link rel="stylesheet" href="style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/diff/5.0.0/diff.min.js"></script>
         <script src="script.js"></script>
-        <title>Photo to Base64 Encoder</title>
+        <title>Text Compare</title>
     </head>
     <body>
         <div class="page">
@@ -40,7 +41,7 @@
                     <button class="btn">View Base64 Photo</button>
                 </a>
                 <a href="photoEncode64.html">
-                    <button class="btn-active">Encode Photo in Base64</button>
+                    <button class="btn">Encode Photo in Base64</button>
                 </a>
                 <a href="3des.html">
                    <button class="btn">3DES Encoding/Decoding</button>
@@ -64,28 +65,24 @@
                     <button class="btn">Beautify XML</button>
                 </a>
                 <a href="textcomp.html">
-                    <button class="btn">Text Compare</button>
+                    <button class="btn-active">Text Compare</button>
                 </a>
             </div>
             <div class="dashboard">
-                <div class="file-in">
-                    <form id="uploadForm">
-                        <div id="dropZone" class="drop-zone">
-                            Drag a picture here or select the file.
-                            <input type="file" id="fileInput" name="file" hidden>
-                        </div>
-                    </form>
+                <div class="div-duplicates">
+                    <textarea class="text" id="txt-in" rows=5 placeholder="Insert the first text."></textarea>
+                    <textarea class="text" id="txt-in2" rows=5 placeholder="Insert the second text."></textarea>
                 </div>
-                <button id="encodeButton" class="btn-dashboard">
-                    Encode!
-                </button>
-                <div class="container-out">
-                    <button class="btn-copy" onclick="copyText()">Copy</button>
-                    <textarea disabled id="txt-out" class="text textWithLessMarginTop" rows="10" placeholder="The result will appear here."></textarea>
+                <button class="btn-dashboard" onclick="textCompare()">
+                    Compare!
+                </button>                
+                <div class="div-duplicates">
+                    <span id="span1" class="span"></span>
+                    <span id="span2" class="span"></span>
                 </div>
             </div>
-            <input type = "checkbox" id="darkmode-toggle" onclick="switchmode()">
-            <label for ="darkmode-toggle">
+            <input type="checkbox" id="darkmode-toggle" onclick="switchmode()">
+            <label for="darkmode-toggle">
         </div>
     </body>
 </html>
